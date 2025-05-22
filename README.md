@@ -17,7 +17,7 @@
 13. [🧰 Pruebas manuales](#-pruebas-manuales)  
 14. [🔒 Manejo de seguridad (opcional)](#-manejo-de-seguridad-opcional)  
 15. [📏 Buenas prácticas y convenciones](#-buenas-prácticas-y-convenciones)  
-16. [📎 Anexos](#-anexos)  
+16. [📎 Anexos (opcional)](#-anexos)  
 
 ---
 ## 📖 Introducción
@@ -35,6 +35,7 @@ Este documento está dirigido principalmente a estudiantes de pregrado que cursa
 
 ---
 ## 🛠️ Configuración del entorno
+
 Antes de comenzar a desarrollar servicios RESTful con Spring Boot, es fundamental preparar el entorno de desarrollo. Esta sección describe paso a paso cómo instalar y configurar las herramientas necesarias para trabajar de manera eficiente y sin errores desde el principio.
 ### ☕ Instalación de Java JDK
 Spring Boot requiere Java para poder compilar y ejecutar los proyectos. Se recomienda instalar la **versión 17 de Java JDK**, que es compatible y estable con la mayoría de las herramientas modernas.
@@ -131,6 +132,7 @@ Cada paquete tiene un propósito claro y está diseñado para mantener un códig
 ---
 
 ## ⚙️ Configuración del proyecto
+
 Una vez creado el proyecto, es importante realizar algunas configuraciones esenciales para que la aplicación funcione correctamente. Esto incluye definir propiedades de conexión, establecer el puerto del servidor, y asegurar que las dependencias estén correctamente declaradas en el archivo `pom.xml`.
 
 ### 📄 Configuración de `application.properties` o `application.yml`

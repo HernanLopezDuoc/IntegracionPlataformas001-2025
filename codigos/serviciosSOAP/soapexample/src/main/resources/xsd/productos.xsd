@@ -1,0 +1,130 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://duoc.cl/ws"
+           xmlns:tns="http://duoc.cl/ws"
+           elementFormDefault="qualified">
+
+  <!-- Tipo Producto -->
+  <xs:complexType name="Producto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="nombre" type="xs:string"/>
+      <xs:element name="descripcion" type="xs:string"/>
+      <xs:element name="precio" type="xs:decimal"/>
+      <xs:element name="stock" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Tipo común de respuesta con lista de productos -->
+  <xs:complexType name="ListarProductosResponse">
+    <xs:sequence>
+      <xs:element name="productos" type="tns:Producto" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- LISTAR -->
+  <xs:element name="ListarProductosRequest">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListarProductosResponse" type="tns:ListarProductosResponse"/>
+
+  <!-- BUSCAR -->
+  <xs:element name="BuscarProductosRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="texto" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="BuscarProductosResponse">
+    <xs:sequence>
+      <xs:element name="productos" type="tns:Producto" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="BuscarProductosResponse" type="tns:BuscarProductosResponse"/>
+
+  <!-- OBTENER POR ID -->
+  <xs:element name="ObtenerProductoPorIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ObtenerProductoPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="producto" type="tns:Producto"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- CREAR -->
+  <xs:element name="CrearProductoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="producto" type="tns:Producto"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CrearProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="idGenerado" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ACTUALIZAR -->
+<xs:element name="ActualizarProductoRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="producto" type="tns:Producto"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="ActualizarProductoResponse">
+  <xs:complexType>
+    <xs:sequence/>
+  </xs:complexType>
+</xs:element>
+
+<!-- ELIMINAR -->
+<xs:element name="EliminarProductoRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="EliminarProductoResponse">
+  <xs:complexType>
+    <xs:sequence/>
+  </xs:complexType>
+</xs:element>
+
+<!-- PARCHAR -->
+<xs:element name="ParcharProductoRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="campo" type="xs:string"/>
+      <xs:element name="valor" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="ParcharProductoResponse">
+  <xs:complexType>
+    <xs:sequence/>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

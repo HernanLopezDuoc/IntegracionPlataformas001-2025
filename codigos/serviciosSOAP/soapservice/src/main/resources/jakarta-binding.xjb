@@ -1,0 +1,14 @@
+<jxb:bindings version="2.1"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              jxb:extensionBindingPrefixes="jakarta"
+              xmlns:jakarta="jakarta.xml.bind.annotation">
+    <jxb:bindings>
+        <jxb:globalBindings>
+            <jxb:javaType name="java.lang.String"
+                          xmlType="xs:string"
+                          parseMethod="jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT"
+                          printMethod="jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT"/>
+        </jxb:globalBindings>
+    </jxb:bindings>
+</jxb:bindings>

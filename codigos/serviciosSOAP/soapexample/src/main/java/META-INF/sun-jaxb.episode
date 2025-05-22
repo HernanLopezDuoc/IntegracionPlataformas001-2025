@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2025.05.13 a las 01:58:49 AM CLT 
+
+  -->
+      
+    <bindings xmlns:tns="http://duoc.cl/ws" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="cl.duoc.ws.model"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:ListarProductosRequest">
+                  
+            <class ref="cl.duoc.ws.model.ListarProductosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:ListarProductosResponse">
+                  
+            <class ref="cl.duoc.ws.model.ListarProductosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:BuscarProductosRequest">
+                  
+            <class ref="cl.duoc.ws.model.BuscarProductosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:BuscarProductosResponse">
+                  
+            <class ref="cl.duoc.ws.model.BuscarProductosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ObtenerProductoPorIdRequest">
+                  
+            <class ref="cl.duoc.ws.model.ObtenerProductoPorIdRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ObtenerProductoPorIdResponse">
+                  
+            <class ref="cl.duoc.ws.model.ObtenerProductoPorIdResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:Producto">
+                  
+            <class ref="cl.duoc.ws.model.Producto"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearProductoRequest">
+                  
+            <class ref="cl.duoc.ws.model.CrearProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearProductoResponse">
+                  
+            <class ref="cl.duoc.ws.model.CrearProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ActualizarProductoRequest">
+                  
+            <class ref="cl.duoc.ws.model.ActualizarProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ActualizarProductoResponse">
+                  
+            <class ref="cl.duoc.ws.model.ActualizarProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EliminarProductoRequest">
+                  
+            <class ref="cl.duoc.ws.model.EliminarProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EliminarProductoResponse">
+                  
+            <class ref="cl.duoc.ws.model.EliminarProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ParcharProductoRequest">
+                  
+            <class ref="cl.duoc.ws.model.ParcharProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ParcharProductoResponse">
+                  
+            <class ref="cl.duoc.ws.model.ParcharProductoResponse"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

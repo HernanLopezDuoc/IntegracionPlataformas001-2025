@@ -142,7 +142,72 @@ Define el contrato del servicio. Guárdalo en `src/main/resources/xsd/productos.
     </xs:schema>
 
 
-## ⚙️ 3. **Configura el `pom.xml`**
+
+## 🔧 3. Generar Clases JAXB
+
+### 📝 Estructura de Archivos
+1. Crea carpeta `jaxb-generator` y subcarpetas `src/main/resources` y `output`.    
+2. Coloca `productos.xsd` dentro de `src/main/resources`.
+
+    mkdir jaxb-generator
+    cd jaxb-generator
+    mkdir -p src/main/resources
+    mkdir output
+
+Coloca tu archivo `productos.xsd` dentro de `src/main/resources`.
+
+### 📝  Crear el archivo `pom.xml`
+
+Crea un `pom.xml` mínimo para descargar los JARs necesarios de JAXB:
+
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>cl.duoc</groupId>
+        <artifactId>jaxb-generator</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-xjc</artifactId>
+                <version>4.0.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>4.0.3</version>
+            </dependency>
+        </dependencies>
+    </project>
+
+
+
+### 🔄 Descargar dependencias
+
+    mvn dependency:copy-dependencies 
+
+Esto dejará los `.jar` necesarios en `target/dependency`.
+
+
+### 🔄 Generar las clases del modelo
+
+       java -cp "target/dependency/*" com.sun.tools.xjc.XJCFacade \
+      -d output \
+      -p cl.duoc.productossoap.generated \
+      -extension \
+      src/main/resources/productos.xsd
+
+
+### ✅ Verificar las clases generadas
+
+Las clases se generarán en:
+
+    output/cl/duoc/productossoap/generated/
+
+
+## ⚙️ 4. **Configura el `pom.xml`**
 
 Agrega dependencias necesarias:
 
@@ -227,71 +292,6 @@ Agrega dependencias necesarias:
             </plugins>
         </build>
     </project>
-
-
-
-## 🔧 4. Generar Clases JAXB
-
-### 📝 Estructura de Archivos
-1. Crea carpeta `jaxb-generator` y subcarpetas `src/main/resources` y `output`.    
-2. Coloca `productos.xsd` dentro de `src/main/resources`.
-
-    mkdir jaxb-generator
-    cd jaxb-generator
-    mkdir -p src/main/resources
-    mkdir output
-
-Coloca tu archivo `productos.xsd` dentro de `src/main/resources`.
-
-### 📝  Crear el archivo `pom.xml`
-
-Crea un `pom.xml` mínimo para descargar los JARs necesarios de JAXB:
-
-    <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>cl.duoc</groupId>
-        <artifactId>jaxb-generator</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    
-        <dependencies>
-            <dependency>
-                <groupId>org.glassfish.jaxb</groupId>
-                <artifactId>jaxb-xjc</artifactId>
-                <version>4.0.3</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jaxb</groupId>
-                <artifactId>jaxb-runtime</artifactId>
-                <version>4.0.3</version>
-            </dependency>
-        </dependencies>
-    </project>
-
-
-
-### 🔄 Descargar dependencias
-
-    mvn dependency:copy-dependencies 
-
-Esto dejará los `.jar` necesarios en `target/dependency`.
-
-
-### 🔄 Generar las clases del modelo
-
-       java -cp "target/dependency/*" com.sun.tools.xjc.XJCFacade \
-      -d output \
-      -p cl.duoc.productossoap.generated \
-      -extension \
-      src/main/resources/productos.xsd
-
-
-### ✅ Verificar las clases generadas
-
-Las clases se generarán en:
-
-    output/cl/duoc/productossoap/generated/
 
 
 ## 📡 5. Creación del Endpoint SOAP
@@ -568,7 +568,6 @@ package cl.duoc.productossoap.endpoint;
           </ws:ParcharProductoRequest>
        </soapenv:Body>
     </soapenv:Envelope>
-
 
 
 
